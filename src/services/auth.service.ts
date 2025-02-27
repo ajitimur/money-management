@@ -6,10 +6,12 @@ import { RefreshToken } from '../entities/RefreshToken.entity';
 import { config } from '../config';
 import { AppError } from '../types/error';
 import { RegisterDto, LoginDto } from '../dtos/auth.dto';
+import { UserRole, RoleType } from '../entities/UserRole.entity';
 
 export class AuthService {
   private userRepository = AppDataSource.getRepository(User);
   private refreshTokenRepository = AppDataSource.getRepository(RefreshToken);
+  private roleRepository = AppDataSource.getRepository(UserRole);
 
   async register(registerDto: RegisterDto): Promise<{ user: User; accessToken: string }> {
     const existingUser = await this.userRepository.findOne({
@@ -21,9 +23,19 @@ export class AuthService {
     }
 
     const hashedPassword = await hash(registerDto.password, 10);
+
+    const defaultRole = await this.roleRepository.findOne({
+      where: { name: RoleType.USER }
+    });
+
+    if (!defaultRole) {
+      throw new AppError('Default role not found', 500);
+    }
+
     const user = this.userRepository.create({
       ...registerDto,
       password: hashedPassword,
+      roles: [defaultRole]
     });
 
     await this.userRepository.save(user);
