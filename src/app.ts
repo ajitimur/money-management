@@ -5,6 +5,9 @@ import { AppDataSource } from './config/database';
 import { errorHandler, notFoundHandler } from './middlewares/error.middleware';
 import { config } from './config';
 import authRoutes from './routes/auth.routes';
+import transactionRoutes from './routes/transaction.routes';
+import categoryRoutes from './routes/category.routes';
+import subCategoryRoutes from './routes/subcategory.routes';
 
 const app: Express = express();
 
@@ -15,6 +18,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/sub-categories', subCategoryRoutes);
+app.use('/api/transactions', transactionRoutes);
 
 // Health check
 app.get('/health', (_req, res) => {
