@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { config } from './index';
+import path from 'path';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -8,9 +9,9 @@ export const AppDataSource = new DataSource({
   username: config.database.username,
   password: config.database.password,
   database: config.database.database,
-  synchronize: config.env === 'development',
+  synchronize: false,
   logging: config.env === 'development',
-  entities: ['src/entities/**/*.ts'],
-  migrations: ['src/migrations/**/*.ts'],
-  subscribers: ['src/subscribers/**/*.ts'],
+  entities: [path.join(__dirname, '../entities/**/*.{ts,js}')],
+  migrations: [path.join(__dirname, '../../database/migrations/**/*.{ts,js}')],
+  subscribers: [path.join(__dirname, '../subscribers/**/*.{ts,js}')],
 }); 
