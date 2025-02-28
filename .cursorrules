@@ -1,0 +1,259 @@
+rules:
+  # Directory Structure
+  directories:
+    src:
+      - config
+      - controllers
+      - services
+      - entities
+      - middlewares
+      - utils
+      - types
+      - routes
+    database:
+      - migrations
+      - seeds
+    test:
+      - unit
+      - integration
+      - e2e
+    docker:
+      - "*"
+
+  # File Naming Conventions
+  files:
+    entities:
+      pattern: "^[A-Z][a-zA-Z]+\\.entity\\.ts$"
+      location: "src/entities"
+      example: "User.entity.ts"
+
+    controllers:
+      pattern: "^[A-Z][a-zA-Z]+\\.controller\\.ts$"
+      location: "src/controllers"
+      example: "Auth.controller.ts"
+
+    services:
+      pattern: "^[A-Z][a-zA-Z]+\\.service\\.ts$"
+      location: "src/services"
+      example: "Auth.service.ts"
+
+    middlewares:
+      pattern: "^[a-z][a-zA-Z]+\\.middleware\\.ts$"
+      location: "src/middlewares"
+      example: "auth.middleware.ts"
+
+    routes:
+      pattern: "^[a-z][a-zA-Z]+\\.routes\\.ts$"
+      location: "src/routes"
+      example: "auth.routes.ts"
+
+    dtos:
+      pattern: "^[a-z][a-zA-Z]+\\.dto\\.ts$"
+      location: "src/dtos"
+      example: "auth.dto.ts"
+
+    migrations:
+      pattern: "^\\d{13}-[a-z-]+\\.ts$"
+      location: "database/migrations"
+      example: "1000000000000-create-initial-tables.ts"
+
+    seeds:
+      pattern: "^[A-Z][a-zA-Z]+Seeder\\.ts$"
+      location: "database/seeds"
+      example: "CategorySeeder.ts"
+
+    tests:
+      pattern: "^[a-zA-Z]+\\.(?:spec|test)\\.ts$"
+      location: "test/**"
+      example: "auth.spec.ts"
+
+  # TypeScript Conventions
+  typescript:
+    entities:
+      - must_have_primary_column: true
+      - must_have_timestamps: true
+      - must_use_decorators: true
+
+    controllers:
+      - must_extend_base_controller: false
+      - must_use_decorators: true
+      - must_have_error_handling: true
+
+    services:
+      - must_use_repository: true
+      - must_have_error_handling: true
+      - must_use_types: true
+
+    dtos:
+      - must_use_decorators: true
+      - must_have_validation: true
+
+  # Naming Conventions
+  naming:
+    classes:
+      pattern: "^[A-Z][a-zA-Z]+$"
+      examples: ["UserController", "AuthService"]
+
+    interfaces:
+      pattern: "^I[A-Z][a-zA-Z]+$"
+      examples: ["IUser", "IAuthService"]
+
+    types:
+      pattern: "^T[A-Z][a-zA-Z]+$"
+      examples: ["TUserResponse", "TAuthPayload"]
+
+    enums:
+      pattern: "^[A-Z][a-zA-Z]+$"
+      examples: ["RoleType", "Permission"]
+
+    variables:
+      pattern: "^[a-z][a-zA-Z]+$"
+      examples: ["user", "authService"]
+
+  # Database Conventions
+  database:
+    table_names:
+      pattern: "^[a-z_]+$"
+      examples: ["users", "user_roles"]
+
+    column_names:
+      pattern: "^[a-z_]+$"
+      examples: ["first_name", "created_at"]
+
+    foreign_keys:
+      pattern: "^FK_[a-z_]+$"
+      examples: ["FK_user_role_mapping_user"]
+
+  # Error Handling
+  error_handling:
+    must_use_custom_error_class: true
+    must_use_error_middleware: true
+    must_handle_async_errors: true
+
+  # Authentication
+  authentication:
+    must_use_jwt: true
+    must_use_refresh_token: true
+    must_validate_token: true
+
+  # Authorization
+  authorization:
+    must_check_permissions: true
+    must_validate_roles: true
+
+  # Validation
+  validation:
+    must_use_class_validator: true
+    must_validate_dtos: true
+    must_sanitize_input: true
+
+  # Documentation
+  documentation:
+    must_have_jsdoc: true
+    must_document_apis: true
+    must_use_swagger: true
+
+  # Tech Stack
+  tech_stack:
+    core:
+      backend:
+        language: "TypeScript"
+        runtime: "Node.js"
+        framework: "Express"
+        version:
+          node: ">=18.0.0"
+          typescript: ">=5.0.0"
+
+    database:
+      primary: "PostgreSQL"
+      cache: "Redis"
+      orm: "TypeORM"
+      versions:
+        postgresql: ">=14"
+        redis: ">=6"
+        typeorm: ">=0.3.0"
+
+    authentication:
+      jwt: true
+      refresh_token: true
+      libraries:
+        - "jsonwebtoken"
+        - "bcrypt"
+
+    validation:
+      library: "class-validator"
+      transformer: "class-transformer"
+
+    documentation:
+      api: "Swagger/OpenAPI"
+      version: ">=3.0.0"
+
+    testing:
+      framework: "Jest"
+      integration: "Supertest"
+      versions:
+        jest: ">=29.0.0"
+        supertest: ">=6.0.0"
+
+    containerization:
+      docker: true
+      docker_compose: true
+      versions:
+        docker: ">=20.0.0"
+        docker_compose: ">=2.0.0"
+
+    ci_cd:
+      platform: "GitHub Actions"
+      required_checks:
+        - "lint"
+        - "test"
+        - "build"
+        - "docker"
+
+    dependencies:
+      required:
+        - "@types/node"
+        - "@types/express"
+        - "typescript"
+        - "ts-node-dev"
+        - "typeorm"
+        - "pg"
+        - "express"
+        - "dotenv"
+        - "cors"
+        - "helmet"
+        - "class-validator"
+        - "class-transformer"
+        - "jsonwebtoken"
+        - "bcrypt"
+        - "redis"
+
+      development:
+        - "@typescript-eslint/parser"
+        - "@typescript-eslint/eslint-plugin"
+        - "eslint"
+        - "prettier"
+        - "jest"
+        - "@types/jest"
+        - "supertest"
+        - "@types/supertest"
+
+    security:
+      required_middleware:
+        - "helmet"
+        - "cors"
+        - "rate-limit"
+        - "express-validator"
+
+    monitoring:
+      health_check: true
+      logging: true
+      metrics: true
+      recommended:
+        - "winston"
+        - "morgan"
+        - "prometheus"
+
+Code Quality:
+Ensure secure, efficient code following RESTful API best practices.
+Implement proper error handling and input validation.
