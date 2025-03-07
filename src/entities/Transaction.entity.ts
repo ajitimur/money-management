@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, Up
 import { User } from './User.entity';
 import { Category } from './Category.entity';
 import { SubCategory } from './SubCategory.entity';
+import { Account } from './Account.entity';
 
 @Entity('transactions')
 export class Transaction {
@@ -40,6 +41,12 @@ export class Transaction {
 
   @Column({ nullable: true })
   subCategoryId!: string;
+
+  @ManyToOne(() => Account, account => account.transactions)
+  account!: Account;
+
+  @Column()
+  accountId!: number;
 
   @CreateDateColumn()
   createdAt!: Date;

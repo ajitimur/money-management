@@ -23,6 +23,10 @@ export class CreateTransactionDto {
 
   @IsOptional()
   notes?: string;
+
+  @IsNotEmpty()
+  @IsNumber()
+  accountId!: number;
 }
 
 export class UpdateTransactionDto extends CreateTransactionDto {
@@ -44,6 +48,10 @@ export class UpdateTransactionDto extends CreateTransactionDto {
   @IsOptional()
   @IsNumber()
   categoryId!: number;
+
+  @IsOptional()
+  @IsNumber()
+  accountId!: number;
 }
 
 export class TransactionFilterDto {
