@@ -5,24 +5,30 @@ import { Category } from '../entities/Category.entity';
 import { User } from '../entities/User.entity';
 import { CreateTransactionDto, UpdateTransactionDto, TransactionFilterDto } from '../dtos/transaction.dto';
 import { AppError } from '../types/error';
+import { Account } from '../entities/Account.entity';
 
 export class TransactionService {
   private transactionRepository = AppDataSource.getRepository(Transaction);
   private categoryRepository = AppDataSource.getRepository(Category);
+  private accountRepository = AppDataSource.getRepository(Account);
 
   async createTransaction(userId: number, dto: CreateTransactionDto): Promise<Transaction> {
-    const category = await this.categoryRepository.findOne({
-      where: { id: dto.categoryId },
+    const account = await this.accountRepository.findOne({
+      where: { id: dto.accountId, userId }
     });
 
-    if (!category) {
-      throw new AppError('Category not found', 404);
+    if (!account) {
+      throw new AppError('Account not found', 404);
     }
 
-    const transaction = this.transactionRepository.create({
+    const transaction = await this.transactionRepository.create({
       ...dto,
-      userId,
+      userId
     });
+
+    // Update account balance
+    account.balance += dto.type === 'INCOME' ? dto.amount : -dto.amount;
+    await this.accountRepository.save(account);
 
     return await this.transactionRepository.save(transaction);
   }

@@ -11,6 +11,7 @@ import subCategoryRoutes from './routes/subcategory.routes.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import path from 'path';
+import accountRoutes from './routes/account.routes.js';
 
 const app: Express = express();
 
@@ -22,7 +23,8 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoryRoutes);
-app.use('/api/sub-categories', subCategoryRoutes);
+app.use('/api/subcategories', subCategoryRoutes);
+app.use('/api/accounts', accountRoutes);
 app.use('/api/transactions', transactionRoutes);
 
 // Swagger configuration

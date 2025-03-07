@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { Transaction } from './Transaction.entity';
 import { UserRole } from './UserRole.entity';
+import { Account } from './Account.entity';
 
 @Entity('users')
 export class User {
@@ -50,4 +51,7 @@ export class User {
     }
   })
   roles!: UserRole[];
+
+  @OneToMany(() => Account, account => account.user)
+  accounts!: Account[];
 } 

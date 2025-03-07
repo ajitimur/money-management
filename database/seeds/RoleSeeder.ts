@@ -11,17 +11,23 @@ export class RoleSeeder {
     const roles = [
       {
         name: RoleType.ADMIN,
+        description: 'Administrator with full access',
         permissions: Object.values(Permission)
       },
       {
         name: RoleType.USER,
+        description: 'Regular user',
         permissions: [
           Permission.READ_CATEGORY,
           Permission.READ_SUBCATEGORY,
           Permission.CREATE_TRANSACTION,
           Permission.READ_TRANSACTION,
           Permission.UPDATE_TRANSACTION,
-          Permission.DELETE_TRANSACTION
+          Permission.DELETE_TRANSACTION,
+          Permission.CREATE_ACCOUNT,
+          Permission.READ_ACCOUNT,
+          Permission.UPDATE_ACCOUNT,
+          Permission.DELETE_ACCOUNT
         ]
       }
     ];
@@ -31,7 +37,10 @@ export class RoleSeeder {
         where: { name: roleData.name }
       });
 
-      if (!existingRole) {
+      if (existingRole) {
+        existingRole.permissions = roleData.permissions;
+        await roleRepository.save(existingRole);
+      } else {
         const role = roleRepository.create(roleData);
         await roleRepository.save(role);
       }

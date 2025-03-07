@@ -24,5 +24,11 @@ export enum Permission {
   DELETE_TRANSACTION = 'delete:transaction',
 
   // Role permissions
-  MANAGE_ROLES = 'manage:roles'
+  MANAGE_ROLES = 'manage:roles',
+
+  // Account permissions
+  CREATE_ACCOUNT = 'create:account',
+  READ_ACCOUNT = 'read:account',
+  UPDATE_ACCOUNT = 'update:account',
+  DELETE_ACCOUNT = 'delete:account',
 } 
