@@ -32,6 +32,7 @@ export class AccountController {
     try {
       const includeInactive = req.query.includeInactive === 'true';
       const accounts = await this.accountService.getAccounts(req.user!.id, includeInactive);
+      console.log(accounts);
 
       res.status(200).json({
         status: 'success',

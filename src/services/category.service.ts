@@ -28,8 +28,9 @@ export class CategoryService {
     return await this.categoryRepository.find({
       where: query,
       order: {
-        name: 'ASC',
+        id: 'ASC',
       },
+      relations: ['subCategories'],
     });
   }
 

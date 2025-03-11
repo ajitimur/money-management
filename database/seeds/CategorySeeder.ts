@@ -16,26 +16,26 @@ export class CategorySeeder {
         color: '#FF5722',
         icon: 'restaurant',
         subCategories: [
-          { name: 'Groceries', icon: 'shopping_basket' },
-          { name: 'Restaurant, Cafe, Eating Out', icon: 'restaurant_menu' }
+          { name: 'Groceries', icon: 'basket' },
+          { name: 'Restaurant, Cafe, Eating Out', icon: 'restaurant' }
         ]
       },
       {
         name: 'Shopping',
         type: 'EXPENSE',
         color: '#E91E63',
-        icon: 'shopping_cart',
+        icon: 'cart',
         subCategories: [
-          { name: 'Clothes & Footwear', icon: 'checkroom' },
-          { name: 'Drug-store, chemist', icon: 'local_pharmacy' },
-          { name: 'Electronics, accessories', icon: 'devices' },
-          { name: 'Gifts, joy', icon: 'card_giftcard' },
-          { name: 'Health and beauty', icon: 'spa' },
+          { name: 'Clothes & Footwear', icon: 'shirt' },
+          { name: 'Drug-store, chemist', icon: 'medkit' },
+          { name: 'Electronics, accessories', icon: 'hardware-chip' },
+          { name: 'Gifts, joy', icon: 'gift' },
+          { name: 'Health and beauty', icon: 'fitness' },
           { name: 'Home, garden', icon: 'home' },
           { name: 'Jewels, accessories', icon: 'diamond' },
-          { name: 'Kids', icon: 'child_care' },
-          { name: 'Leisure time', icon: 'sports_esports' },
-          { name: 'Pets, animals', icon: 'pets' },
+          { name: 'Kids', icon: 'people' },
+          { name: 'Leisure time', icon: 'game-controller' },
+          { name: 'Pets, animals', icon: 'paw' },
           { name: 'Stationery, tools', icon: 'build' }
         ]
       },
@@ -43,31 +43,31 @@ export class CategorySeeder {
         name: 'Housing',
         type: 'EXPENSE',
         color: '#9C27B0',
-        icon: 'house',
+        icon: 'home',
         subCategories: [
-          { name: 'Energy, utilities', icon: 'power' },
-          { name: 'Maintenance, repairs', icon: 'handyman' },
-          { name: 'Mortgage', icon: 'account_balance' },
-          { name: 'Property insurance', icon: 'security' },
-          { name: 'Rent', icon: 'apartment' },
-          { name: 'Services', icon: 'miscellaneous_services' }
+          { name: 'Energy, utilities', icon: 'flash' },
+          { name: 'Maintenance, repairs', icon: 'hammer' },
+          { name: 'Mortgage', icon: 'business' },
+          { name: 'Property insurance', icon: 'shield' },
+          { name: 'Rent', icon: 'business' },
+          { name: 'Services', icon: 'construct' }
         ]
       },
       {
         name: 'Transportation',
         type: 'EXPENSE',
         color: '#3F51B5',
-        icon: 'directions_car',
+        icon: 'car',
         subCategories: [
-          { name: 'Business trips', icon: 'business_center' },
-          { name: 'Long distance', icon: 'flight' },
-          { name: 'Public transport', icon: 'directions_bus' },
-          { name: 'Taxi', icon: 'local_taxi' },
-          { name: 'Fuel', icon: 'local_gas_station' },
-          { name: 'Leasing', icon: 'request_quote' },
-          { name: 'Parking', icon: 'local_parking' },
-          { name: 'Rentals', icon: 'car_rental' },
-          { name: 'Vehicle insurance', icon: 'security' },
+          { name: 'Business trips', icon: 'briefcase' },
+          { name: 'Long distance', icon: 'airplane' },
+          { name: 'Public transport', icon: 'bus' },
+          { name: 'Taxi', icon: 'car' },
+          { name: 'Fuel', icon: 'flame' },
+          { name: 'Leasing', icon: 'card' },
+          { name: 'Parking', icon: 'car' },
+          { name: 'Rentals', icon: 'car-sport' },
+          { name: 'Vehicle insurance', icon: 'shield' },
           { name: 'Vehicle maintenance', icon: 'build' }
         ]
       },
@@ -75,88 +75,88 @@ export class CategorySeeder {
         name: 'Life & Entertainment',
         type: 'EXPENSE',
         color: '#009688',
-        icon: 'sports_esports',
+        icon: 'game-controller',
         subCategories: [
-          { name: 'Sport and fitness', icon: 'fitness_center' },
-          { name: 'Alcohol and tobacco', icon: 'liquor' },
-          { name: 'Books, audio, subscriptions', icon: 'menu_book' },
-          { name: 'Charity and gifts', icon: 'volunteer_activism' },
-          { name: 'Cultural or sport events', icon: 'theater_comedy' },
+          { name: 'Sport and fitness', icon: 'fitness' },
+          { name: 'Alcohol and tobacco', icon: 'wine' },
+          { name: 'Books, audio, subscriptions', icon: 'book' },
+          { name: 'Charity and gifts', icon: 'heart' },
+          { name: 'Cultural or sport events', icon: 'ticket' },
           { name: 'Education, personal development', icon: 'school' },
-          { name: 'Health care', icon: 'medical_services' },
-          { name: 'Hobbies', icon: 'palette' },
-          { name: 'Holiday, trips, hotels', icon: 'beach_access' },
-          { name: 'Life events', icon: 'celebration' },
-          { name: 'Lottery, gambling', icon: 'casino' },
-          { name: 'Wellness, beauty', icon: 'spa' }
+          { name: 'Health care', icon: 'medical' },
+          { name: 'Hobbies', icon: 'color-palette' },
+          { name: 'Holiday, trips, hotels', icon: 'airplane' },
+          { name: 'Life events', icon: 'calendar' },
+          { name: 'Lottery, gambling', icon: 'dice' },
+          { name: 'Wellness, beauty', icon: 'fitness' }
         ]
       },
       {
         name: 'Communication, PC',
         type: 'EXPENSE',
         color: '#00BCD4',
-        icon: 'computer',
+        icon: 'laptop',
         subCategories: [
           { name: 'Internet', icon: 'wifi' },
-          { name: 'Postal services', icon: 'local_post_office' },
+          { name: 'Postal services', icon: 'mail' },
           { name: 'Software, apps, games', icon: 'apps' },
-          { name: 'Telephone, mobile phone', icon: 'phone_android' }
+          { name: 'Telephone, mobile phone', icon: 'call' }
         ]
       },
       {
         name: 'Financial expenses',
         type: 'EXPENSE',
         color: '#FFC107',
-        icon: 'account_balance',
+        icon: 'card',
         subCategories: [
-          { name: 'Advisory', icon: 'support_agent' },
-          { name: 'Charges, Fees', icon: 'payments' },
-          { name: 'Child Support', icon: 'child_care' },
-          { name: 'Fines', icon: 'gavel' },
-          { name: 'Insurances', icon: 'security' },
-          { name: 'Loans, interests', icon: 'credit_score' },
-          { name: 'Taxes', icon: 'receipt_long' }
+          { name: 'Advisory', icon: 'people' },
+          { name: 'Charges, Fees', icon: 'cash' },
+          { name: 'Child Support', icon: 'people' },
+          { name: 'Fines', icon: 'alert-circle' },
+          { name: 'Insurances', icon: 'shield' },
+          { name: 'Loans, interests', icon: 'cash' },
+          { name: 'Taxes', icon: 'document-text' }
         ]
       },
       {
         name: 'Investments',
         type: 'EXPENSE',
         color: '#4CAF50',
-        icon: 'trending_up',
+        icon: 'trending-up',
         subCategories: [
-          { name: 'Collections', icon: 'collections' },
-          { name: 'Financial investments', icon: 'show_chart' },
-          { name: 'Realty', icon: 'apartment' },
-          { name: 'Savings', icon: 'savings' },
-          { name: 'Vehicles', icon: 'directions_car' }
+          { name: 'Collections', icon: 'albums' },
+          { name: 'Financial investments', icon: 'stats-chart' },
+          { name: 'Realty', icon: 'business' },
+          { name: 'Savings', icon: 'save' },
+          { name: 'Vehicles', icon: 'car' }
         ]
       },
       {
         name: 'Income',
         type: 'INCOME',
         color: '#8BC34A',
-        icon: 'payments',
+        icon: 'cash',
         subCategories: [
-          { name: 'Checks, coupons', icon: 'receipt' },
-          { name: 'Child Support', icon: 'child_care' },
-          { name: 'Dues & grants', icon: 'price_check' },
-          { name: 'Gifts', icon: 'card_giftcard' },
-          { name: 'Interests, dividends', icon: 'trending_up' },
-          { name: 'Lending, renting', icon: 'real_estate_agent' },
-          { name: 'Lottery, gambling', icon: 'casino' },
-          { name: 'Refunds (tax, purchase)', icon: 'assignment_return' },
-          { name: 'Rental income', icon: 'house' },
-          { name: 'Sale', icon: 'store' },
-          { name: 'Wage, invoices', icon: 'account_balance_wallet' }
+          { name: 'Checks, coupons', icon: 'document-text' },
+          { name: 'Child Support', icon: 'people' },
+          { name: 'Dues & grants', icon: 'cash' },
+          { name: 'Gifts', icon: 'gift' },
+          { name: 'Interests, dividends', icon: 'trending-up' },
+          { name: 'Lending, renting', icon: 'business' },
+          { name: 'Lottery, gambling', icon: 'dice' },
+          { name: 'Refunds (tax, purchase)', icon: 'return-down-back' },
+          { name: 'Rental income', icon: 'home' },
+          { name: 'Sale', icon: 'storefront' },
+          { name: 'Wage, invoices', icon: 'wallet' }
         ]
       },
       {
         name: 'Others',
         type: 'EXPENSE',
         color: '#607D8B',
-        icon: 'more_horiz',
+        icon: 'ellipsis-horizontal',
         subCategories: [
-          { name: 'Other', icon: 'more_horiz' }
+          { name: 'Other', icon: 'ellipsis-horizontal' }
         ]
       }
     ];
