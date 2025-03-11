@@ -37,6 +37,7 @@ export class TransactionService {
     const queryBuilder = this.transactionRepository
       .createQueryBuilder('transaction')
       .leftJoinAndSelect('transaction.category', 'category')
+      .leftJoinAndSelect('transaction.account', 'account')
       .where('transaction.userId = :userId', { userId });
 
     if (filters.startDate && filters.endDate) {
@@ -70,7 +71,7 @@ export class TransactionService {
   async getTransactionById(userId: number, id: number): Promise<Transaction> {
     const transaction = await this.transactionRepository.findOne({
       where: { id, userId },
-      relations: ['category'],
+      relations: ['category', 'account'],
     });
 
     if (!transaction) {

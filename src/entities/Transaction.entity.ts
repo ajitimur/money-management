@@ -9,7 +9,15 @@ export class Transaction {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Column('decimal', { precision: 10, scale: 2 })
+  @Column("decimal", { 
+    precision: 10, 
+    scale: 2, 
+    default: 0,
+    transformer: { 
+      from: (value: string) => parseFloat(value),
+      to: (value: number) => value
+    }
+  })
   amount!: number;
 
   @Column()

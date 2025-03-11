@@ -26,7 +26,15 @@ export class Account {
   })
   type!: AccountType;
 
-  @Column('decimal', { precision: 10, scale: 2, default: 0 })
+  @Column("decimal", { 
+    precision: 10, 
+    scale: 2, 
+    default: 0,
+    transformer: { 
+      from: (value: string) => parseFloat(value),
+      to: (value: number) => value
+    }
+  })
   balance!: number;
 
   @Column({ nullable: true })
